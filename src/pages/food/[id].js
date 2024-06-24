@@ -13,11 +13,11 @@ export async function getServerSideProps(context) {
     console.log(resp.data);
     return {
         props: {
-            food: data,
-            name: data.name,
-            description: data.description,
-            image: data.imageUrl,
-            ingredients: data.ingredients,
+            food: data || [],
+            name: data.name || '',
+            description: data.description || '',
+            image: data.imageUrl || '',
+            ingredients: data.ingredients || [],
         }
     }
 }
@@ -382,7 +382,7 @@ export default function FoodDetail({ food, name, description, image, ingredients
                             className="w-[1108px] flex flex-col items-start justify-start gap-[22px] max-w-full"
                         >
 
-                            <UpdateResep defaultFormData={{ name: food.name, description: food.description, imageUrl: food.imageUrl, ingredients: food.ingredients }} ></UpdateResep>
+                            <UpdateResep defaultFormData={{ name: name, description: description, imageUrl: image, ingredients: ingredients }} ></UpdateResep>
 
                             <section
                                 className="self-stretch flex flex-row items-start justify-center py-0 px-5 box-border max-w-full text-left text-41xl text-fill-black font-px-h2"

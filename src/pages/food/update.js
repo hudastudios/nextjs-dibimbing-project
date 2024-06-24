@@ -11,10 +11,10 @@ export default function UpdateResep({ defaultFormData }) {
         event.preventDefault();
         const resp = await axios.post(`https://api-bootcamp.do.dibimbing.id/api/v1/update-food/${router.query.id}`,
             {
-                name: formData.name,
-                description: formData.description,
-                ingredients: (formData.ingredients).split(','),
-                imageUrl: formData.imageUrl
+                name: formData?.name,
+                description: formData?.description,
+                ingredients: (formData?.ingredients).split(','),
+                imageUrl: formData?.imageUrl
             },
             {
                 headers: {
@@ -45,7 +45,7 @@ export default function UpdateResep({ defaultFormData }) {
                         className="w-[61.5px] h-[23px] flex flex-row items-start justify-start py-0 px-[11px] box-border"
                     >
                         <input
-                            value={formData.name}
+                            value={formData?.name}
                             onChange={(event) => setFormData((prev) => ({ ...prev, name: event.target.value }))}
                             className="w-[1000px] [border:none] [outline:none] font-px-regular text-sm bg-[transparent] h-[23px] relative leading-[23px] text-fill-dark-gray text-left inline-block"
                             placeholder='Nama Makanan'
@@ -67,7 +67,7 @@ export default function UpdateResep({ defaultFormData }) {
                             className="flex flex-row items-start justify-start py-0 px-[11px]"
                         >
                             <input
-                                value={formData.description}
+                                value={formData?.description}
                                 onChange={(event) => setFormData((prev) => ({ ...prev, description: event.target.value }))}
                                 className="w-[1000px] [border:none] [outline:none] font-px-regular text-sm bg-[transparent] relative leading-[23px] text-fill-dark-gray text-left inline-block min-w-[102px]"
                                 placeholder='Deskripsi Makanan'
@@ -92,7 +92,7 @@ export default function UpdateResep({ defaultFormData }) {
                             className="flex flex-row items-start justify-start py-0 px-[11px] box-border max-w-full"
                         >
                             <input
-                                value={formData.ingredients}
+                                value={formData?.ingredients}
                                 onChange={(event) => setFormData((prev) => ({ ...prev, ingredients: event.target.value }))}
                                 className="w-[1000px] [border:none] [outline:none] font-px-regular text-sm bg-[transparent] relative leading-[23px] text-fill-dark-gray text-left inline-block min-w-[61px] max-w-full"
                                 placeholder='Bahan Makanan'
@@ -117,7 +117,7 @@ export default function UpdateResep({ defaultFormData }) {
                             className="flex flex-row items-start justify-start py-0 px-[11px] box-border max-w-full"
                         >
                             <input
-                                value={formData.imageUrl}
+                                value={formData?.imageUrl}
                                 onChange={(event) => setFormData((prev) => ({ ...prev, imageUrl: event.target.value }))}
                                 className="w-[1000px] [border:none] [outline:none] font-px-regular text-sm bg-[transparent] relative leading-[23px] text-fill-dark-gray text-left inline-block min-w-[57px] max-w-full"
                                 placeholder='Link Foto Makanan'
